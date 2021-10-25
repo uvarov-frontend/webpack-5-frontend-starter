@@ -1,0 +1,33 @@
+@import '~normalize.css';
+@import './global/basic.scss';
+@import './global/fonts.scss';
+@import './global/header.scss';
+@import './global/footer.scss';
+@import './common/**/*.scss';
+
+.section-main {
+	// background-image: url('@/img/webpack-logo.svg');
+
+	&__title {
+		font-size: 32px;
+	}
+
+	&__img {
+		&_big {
+			width: 150px;
+		}
+
+		&_medium {
+			width: 80px;
+		}
+
+		&_small {
+			width: 50px;
+		}
+	}
+}
+
+.logo {
+	display: block;
+	margin: 0 auto;
+}
