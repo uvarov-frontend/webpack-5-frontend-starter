@@ -1,4 +1,4 @@
-import '../modules/js-test';
+import '@/js/modules/js-test';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Vue from 'vue/dist/vue.esm';

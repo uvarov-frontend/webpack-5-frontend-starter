@@ -8,21 +8,21 @@ function navLayout() {
 	layoutBtn.innerText = 'Навигация по верстке';
 
 	layoutNav.innerHTML = `
-  <ul>
-    <li>
-      <a href="index.html">Главная страница</a>
-    </li>
-    <li>
-      <a href="page-pug.html">PUG Шаблон</a>
-    </li>
-    <li>
-      <a href="page-html.html">HTML шаблон</a>
-    </li>
-    <li>
-      <a href="page-twig.html">TWIG шаблон</a>
-    </li>
-  </ul>
-  `;
+	<ul>
+		<li>
+			<a href="index.html">Главная страница</a>
+		</li>
+		<li>
+			<a href="page-pug.html">PUG Шаблон</a>
+		</li>
+		<li>
+			<a href="page-html.html">HTML шаблон</a>
+		</li>
+		<li>
+			<a href="page-twig.html">TWIG шаблон</a>
+		</li>
+	</ul>
+	`;
 
 	document.body.append(layout);
 	layout.append(layoutBtn);

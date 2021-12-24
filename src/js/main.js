@@ -1,4 +1,4 @@
 // eslint-disable-next-line import/no-unresolved
-import './global/**/*.js';
+import '@/js/global/**/*';
 
 console.log('Общий JS для всех страниц');
