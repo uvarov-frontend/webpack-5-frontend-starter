@@ -1,8 +1,8 @@
 // JS
-import '../js/pages/page-pug.js';
+import '@/js/pages/page-pug.js';
 
 // Styles
-import '../styles/pages/page-pug.scss';
+import '@/styles/pages/page-pug.scss';
 
 // Templates
-import '../templates/pages/page-pug.pug';
+import '@/templates/pages/page-pug.pug';

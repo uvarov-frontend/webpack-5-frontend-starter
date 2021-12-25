@@ -1,8 +1,8 @@
 // JS
-import '../js/pages/page-html.js';
+import '@/js/pages/page-html.js';
 
 // Styles
-import '../styles/pages/page-html.scss';
+import '@/styles/pages/page-html.scss';
 
 // Templates
-import '../templates/pages/page-html.html';
+import '@/templates/pages/page-html.html';
