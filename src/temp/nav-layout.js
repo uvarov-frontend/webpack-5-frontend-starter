@@ -1,38 +1,64 @@
-function navLayout() {
-	const layout = document.createElement('div');
-	const layoutBtn = document.createElement('button');
-	const layoutNav = document.createElement('nav');
+const navLayout = {
+	open: false,
 
-	layout.className = 'layout-navigation';
-	layoutBtn.setAttribute('type', 'button');
-	layoutBtn.innerText = 'Навигация по верстке';
+	createNavLayout() {
+		const layout = document.createElement('div');
+		layout.className = 'layout-navigation';
+		layout.innerHTML = `
+		<button type="button">Навигация по HTML-страницам</button>
+		<nav>
+			<b>Навигация по HTML-страницам</b>
+			<div>
+				<ul>
+					<li>
+						<a href="index.html">Главная страница</a>
+					</li>
+					<li>
+						<a href="page-pug.html">PUG Шаблон</a>
+					</li>
+					<li>
+						<a href="page-html.html">HTML шаблон</a>
+					</li>
+					<li>
+						<a href="page-twig.html">TWIG шаблон</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<small>by Yury Uvarov</small>
+		`;
 
-	layoutNav.innerHTML = `
-	<ul>
-		<li>
-			<a href="index.html">Главная страница</a>
-		</li>
-		<li>
-			<a href="page-pug.html">PUG Шаблон</a>
-		</li>
-		<li>
-			<a href="page-html.html">HTML шаблон</a>
-		</li>
-		<li>
-			<a href="page-twig.html">TWIG шаблон</a>
-		</li>
-	</ul>
-	`;
+		document.body.append(layout);
+	},
 
-	document.body.append(layout);
-	layout.append(layoutBtn);
-	layout.append(layoutNav);
+	openNavLayout() {
+		document.body.classList.add('show-nav-layout');
+		this.open = true;
+	},
 
-	layoutBtn.addEventListener('click', () => {
-		layout.classList.toggle('open');
-	});
-}
+	closeNavLayout() {
+		document.body.classList.remove('show-nav-layout');
+		this.open = false;
+	},
+
+	hasClick() {
+		document.addEventListener('click', (e) => {
+			if (e.target.closest('.layout-navigation button') && !this.open) {
+				this.openNavLayout();
+			} else if (e.target.closest('.layout-navigation button') && this.open) {
+				this.closeNavLayout();
+			} else if (!e.target.closest('.layout-navigation') && this.open) {
+				this.closeNavLayout();
+			}
+		});
+	},
+
+	init() {
+		this.createNavLayout();
+		this.hasClick();
+	},
+};
 
 document.addEventListener('DOMContentLoaded', () => {
-	navLayout();
+	navLayout.init();
 });
