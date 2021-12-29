@@ -1,3 +1,32 @@
 body {
 	color: green !important;
 }
+
+.section-main {
+	// background-image: url('@/img/webpack-logo.svg');
+	width: 100%;
+	text-align: center;
+
+	&__title {
+		font-size: 32px;
+	}
+
+	&__img {
+		&_big {
+			width: 150px;
+		}
+
+		&_medium {
+			width: 80px;
+		}
+
+		&_small {
+			width: 50px;
+		}
+	}
+}
+
+.logo {
+	display: block;
+	margin: 0 auto;
+}

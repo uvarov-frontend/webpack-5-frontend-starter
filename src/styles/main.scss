@@ -1,33 +1,8 @@
 @import '~normalize.css';
-@import './global/basic.scss';
-@import './global/fonts.scss';
-@import './global/header.scss';
-@import './global/footer.scss';
-@import './common/**/*.scss';
+@import '@/styles/global/basic.scss';
+@import '@/styles/global/fonts.scss';
+@import '@/styles/global/header.scss';
+@import '@/styles/global/footer.scss';
+@import '@/styles/global/wrapper.scss';
 
-.section-main {
-	// background-image: url('@/img/webpack-logo.svg');
-
-	&__title {
-		font-size: 32px;
-	}
-
-	&__img {
-		&_big {
-			width: 150px;
-		}
-
-		&_medium {
-			width: 80px;
-		}
-
-		&_small {
-			width: 50px;
-		}
-	}
-}
-
-.logo {
-	display: block;
-	margin: 0 auto;
-}
+@import '@/styles/common/**/*.scss';
