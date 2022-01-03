@@ -1,7 +1,13 @@
 .footer {
+	$self: &;
+
 	position: relative;
 	z-index: 2;
   grid-area: footer;
   height: 130px;
   background: $white-dark;
+
+	#{$self}-copyright {
+
+	}
 }

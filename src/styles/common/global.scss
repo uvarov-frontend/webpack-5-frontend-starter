@@ -29,6 +29,12 @@
     z-index: 2;
     opacity: 0.6;
   }
+
+	&_show-all {
+		visibility: visible;
+    z-index: 3;
+    opacity: 0.6;
+	}
 }
 
 .container {
@@ -40,14 +46,14 @@ article,
 	width: 100%;
 
 	h1 {
-		font-weight: 500;
+		font-weight: 600;
 		font-size: 32px;
 		line-height: 48px;
 		margin: 18px 0;
 	}
 
 	h2 {
-		font-weight: 500;
+		font-weight: 600;
 		font-size: 24px;
 		line-height: 29px;
 		margin: 16px 0;
@@ -82,7 +88,7 @@ article,
 		margin: 12px 0;
 		font-weight: 400;
 		font-size: 14px;
-		line-height: 24px;
+		line-height: 20px;
 	}
 
 	iframe {
