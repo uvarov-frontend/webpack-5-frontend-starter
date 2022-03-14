@@ -6,14 +6,19 @@ module.exports = {
 	extends: [
 		'airbnb-base',
 		'plugin:vue/essential',
+		'plugin:react/recommended',
 	],
 	parserOptions: {
+		ecmaFeatures: {
+			jsx: true,
+		},
 		ecmaVersion: 12,
 		sourceType: 'module',
 	},
 	plugins: [
 		'vue',
 		'import',
+		'react',
 	],
 	settings: {
 		'import/resolver': {

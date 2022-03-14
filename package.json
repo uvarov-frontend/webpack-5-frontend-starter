@@ -1,7 +1,7 @@
 {
   "name": "webpack-5-frontend-starter",
-  "version": "1.0.0",
-  "description": "Универсальная стартовая frontend сборка Webpack 5 (VUE SCSS PUG TWIG HTML) для одностраничного или многостраничного сайта.",
+  "version": "1.1.0",
+  "description": "Универсальная стартовая frontend сборка Webpack 5 (VUE REACT SCSS PUG TWIG HTML) для одностраничного или многостраничного сайта.",
   "keywords": [
     "webpack",
     "frontend",
@@ -14,6 +14,7 @@
     "bem",
     "scss",
     "vue",
+		"react",
     "pug-bem",
     "vue-bem",
     "start",
@@ -48,6 +49,7 @@
   "devDependencies": {
     "@babel/core": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
+    "@babel/preset-react": "^7.16.7",
     "@nurminen/html-beautify-webpack-plugin": "^1.1.3",
     "@uvarov.frontend/pug-bem-plain-loader": "^1.1.6",
     "autoprefixer": "^10.4.0",
@@ -63,6 +65,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-import-resolver-webpack": "^0.13.2",
     "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-vue": "^8.2.0",
     "ftp-deploy": "^2.4.1",
     "glob-import-loader": "^1.1.4",
@@ -76,6 +79,8 @@
     "postcss-loader": "^6.2.1",
     "postcss-preset-env": "^7.1.0",
     "pug": "^3.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "sass": "^1.45.1",
     "sass-loader": "^12.4.0",
     "sass-resources-loader": "^2.2.4",
