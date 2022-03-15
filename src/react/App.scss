@@ -2,14 +2,4 @@
 	text-align: center;
 	min-height: 100px;
 	// background-image: url('@/img/webpack-logo.svg');
-
-	&__message {
-		&_green {
-			color: $green;
-		}
-	}
-
-	&__img {
-		max-width: 100px;
-	}
 }

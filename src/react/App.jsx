@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import '@/react/App.scss';
+import Block from '@/react/components/Block/Block.jsx';
 
-import img from '@/img/react-logo.jpeg';
+import image from '@/img/react-logo.jpeg';
+
+import '@/react/App.scss';
 
 class App extends Component {
 	render() {
 		return (
 			<section className="section">
-				<div className="container">
-					<p className="section__message section__message_green">React components</p>
-					<img className="section__img" src={img} />
-				</div>
+				<Block image={image}/>
 			</section>
 		);
 	}
 }
+
 export default App;
