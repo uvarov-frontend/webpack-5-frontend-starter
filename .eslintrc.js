@@ -28,6 +28,7 @@ module.exports = {
 		},
 	},
 	rules: {
+		'react/prop-types': 'off',
 		'max-len': ['error', { code: 180 }],
 		'class-methods-use-this': 'off',
 		'no-tabs': 'off',
