@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Block from '@/react/components/Block/Block.jsx';
+import '@/react/App.scss';
 
 import image from '@/img/react-logo.jpeg';
 
-import '@/react/App.scss';
+const App = () => {
+	const text = 'React components';
 
-class App extends Component {
-	render() {
-		return (
-			<section className="section">
-				<Block image={image}/>
-			</section>
-		);
-	}
-}
+	return (
+		<section className="section">
+			<Block text={text} image={image}/>
+		</section>
+	);
+};
 
 export default App;
