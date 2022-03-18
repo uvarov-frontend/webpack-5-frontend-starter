@@ -14,6 +14,11 @@ module.exports = {
 			loader: 'css-loader',
 			options: {
 				sourceMap: !isProd,
+				modules: {
+					auto: true,
+					localIdentName: '[name]__[hash:base64:5]',
+				},
+				importLoaders: 1,
 			},
 		},
 		{
