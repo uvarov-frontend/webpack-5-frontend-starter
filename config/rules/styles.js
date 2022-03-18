@@ -16,7 +16,7 @@ module.exports = {
 				sourceMap: !isProd,
 				modules: {
 					auto: true,
-					localIdentName: '[name]__[hash:base64:5]',
+					localIdentName: '[local]__[hash:base64:5]',
 				},
 				importLoaders: 1,
 			},
