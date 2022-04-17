@@ -13,15 +13,15 @@ const PATHS = require('./paths');
 const ALIAS = require('./alias');
 
 const RULES = [];
-fs.readdirSync(PATHS.rules).filter((filename) => RULES.push(require(`${PATHS.rules}/${filename}`)));
+fs.readdirSync(PATHS.rules).filter((filename) => { return RULES.push(require(`${PATHS.rules}/${filename}`)); });
 
 const PAGES_ENTRY = {
 	main: `${PATHS.src}/${PATHS.entry.global}`,
 };
 
-const PAGE_EXT = (filename) => filename.endsWith('.pug') || filename.endsWith('.twig') || filename.endsWith('.html');
+const PAGE_EXT = (filename) => { return filename.endsWith('.pug') || filename.endsWith('.twig') || filename.endsWith('.html'); };
 const PAGES_DIR = `${PATHS.src}/${PATHS.assets.templates}/${PATHS.assets.pages}`;
-const DEVELOP_PAGES = fs.readdirSync(PAGES_DIR).filter((filename) => filename.startsWith('_'));
+const DEVELOP_PAGES = fs.readdirSync(PAGES_DIR).filter((filename) => { return filename.startsWith('_'); });
 const PAGES = DEVELOP_PAGES.length > 0 ? DEVELOP_PAGES : fs.readdirSync(PAGES_DIR).filter(PAGE_EXT);
 
 PAGES.forEach((page) => {

@@ -1,13 +1,10 @@
-import Vue from 'vue/dist/vue.esm';
 import preloader from '@/js/modules/preloader';
+import { createApp } from 'vue';
+import VuePUGComponent from '@/vue/PUG.vue';
 
-Vue.config.productionTip = false;
-Vue.component('vue-pug', require('@/vue/PUG.vue').default);
+const AppSelector = document.querySelector('#vue-app');
 
-// eslint-disable-next-line no-new
-new Vue({
-	el: '.wrapper',
-});
+if (AppSelector) createApp(VuePUGComponent).mount(AppSelector);
 
 document.addEventListener('DOMContentLoaded', () => {
 	preloader.init();

@@ -1,3 +1,4 @@
+const Webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -27,6 +28,10 @@ module.exports = merge(common, {
 		new MiniCssExtractPlugin({
 			filename: `${common.externals.paths.assets.styles}/[name].css`,
 			linkType: false,
+		}),
+		new Webpack.DefinePlugin({
+			__VUE_OPTIONS_API__: true,
+			__VUE_PROD_DEVTOOLS__: true,
 		}),
 	],
 });

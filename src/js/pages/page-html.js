@@ -1,9 +1,6 @@
-import Vue from 'vue/dist/vue.esm';
+import { createApp } from 'vue';
+import VueHTMLComponent from '@/vue/HTML.vue';
 
-Vue.config.productionTip = false;
-Vue.component('vue-html', require('@/vue/HTML.vue').default);
+const AppSelector = document.querySelector('#vue-app');
 
-// eslint-disable-next-line no-new
-new Vue({
-	el: '.wrapper',
-});
+if (AppSelector) createApp(VueHTMLComponent).mount(AppSelector);
