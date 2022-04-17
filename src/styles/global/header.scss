@@ -3,12 +3,14 @@
 
 	position: relative;
 	z-index: 3;
-  grid-area: header;
-	@include container();
-  height: 70px;
-  background: $white-dark;
+	grid-area: header;
+
+	@include container;
+
+	height: 70px;
+	background: $white-dark;
 
 	#{$self}-menu {
-
+		display: block;
 	}
 }
