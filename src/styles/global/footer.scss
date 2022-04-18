@@ -7,6 +7,8 @@
 	height: 130px;
 	background: $white-dark;
 
+	@include container;
+
 	#{$self}-copyright {
 		display: block;
 	}
