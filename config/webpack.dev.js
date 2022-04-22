@@ -22,6 +22,7 @@ module.exports = merge(common, {
 		client: {
 			logging: 'info',
 			overlay: true,
+			progress: true,
 		},
 	},
 	plugins: [

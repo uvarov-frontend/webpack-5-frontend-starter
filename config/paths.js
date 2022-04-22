@@ -1,23 +1,23 @@
 const path = require('path');
 
 module.exports = {
-	src: path.join(__dirname, '../src'),
-	output: path.join(__dirname, '../build'),
-	rules: path.join(__dirname, './rules'),
+	src: path.resolve(__dirname, '../src'),
+	output: path.resolve(__dirname, '../build'),
+	rules: path.resolve(__dirname, './rules'),
 	entry: {
-		global: 'main.js',
+		catalog: path.resolve(__dirname, './entry'),
+		pages: 'pages',
+		main: 'main.js',
+		temp: 'main.temp.js',
 	},
 	assets: {
-		pages: 'pages',
 		js: 'js',
 		img: 'img',
 		fonts: 'fonts',
+		pages: 'pages',
 		styles: 'styles',
 		static: 'static',
 		templates: 'templates',
 	},
-	stylesGlobal: [
-		path.join(__dirname, '../src/styles/mixin.scss'),
-		path.join(__dirname, '../src/styles/variables.scss'),
-	],
+	temp: "\nimport '@/temp/temp.js';\n",
 };

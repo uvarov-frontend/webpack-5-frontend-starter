@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-dynamic-require */
-/* eslint no-console: 0 */
+/* eslint-disable no-console */
 
 const fs = require('fs');
 const { VueLoaderPlugin } = require('vue-loader');
@@ -11,31 +11,38 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
 const PATHS = require('./paths');
 const ALIAS = require('./alias');
+const TEMP = require('./temp');
 
 const RULES = [];
 fs.readdirSync(PATHS.rules).filter((filename) => { return RULES.push(require(`${PATHS.rules}/${filename}`)); });
 
-const PAGES_ENTRY = {
-	main: `${PATHS.src}/${PATHS.entry.global}`,
+TEMP.init();
+
+const ENTRY = {
+	main: `${PATHS.entry.catalog}/${process.env.TEMP === 'true' ? PATHS.entry.temp : PATHS.entry.main}`,
 };
 
-const PAGE_EXT = (filename) => { return filename.endsWith('.pug') || filename.endsWith('.twig') || filename.endsWith('.html'); };
+const PAGE_EXT = (filename) => {
+	return ['pug', 'twig', 'html'].find((ext) => {
+		return ext === filename.split('.').pop();
+	});
+};
+
 const PAGES_DIR = `${PATHS.src}/${PATHS.assets.templates}/${PATHS.assets.pages}`;
 const DEVELOP_PAGES = fs.readdirSync(PAGES_DIR).filter((filename) => { return filename.startsWith('_'); });
 const PAGES = DEVELOP_PAGES.length > 0 ? DEVELOP_PAGES : fs.readdirSync(PAGES_DIR).filter(PAGE_EXT);
 
 PAGES.forEach((page) => {
 	const PAGE_NAME = page.replace(/^_/g, '').replace(/\.(pug|html|twig)/g, '');
-	const PAGES_ENTRY_FILES = fs.readdirSync(`${PATHS.src}/${PATHS.assets.pages}`);
+	const ENTRY_PAGES = fs.readdirSync(`${PATHS.entry.catalog}/${PATHS.entry.pages}`);
 
-	if (PAGES_ENTRY_FILES.includes(`${PAGE_NAME}.js`)) {
-		PAGES_ENTRY[PAGE_NAME] = {
-			dependOn: PATHS.entry.global.replace(/\.(js)/g, ''),
-			import: `${PATHS.src}/${PATHS.assets.pages}/${PAGE_NAME}.js`,
+	if (ENTRY_PAGES.includes(`${PAGE_NAME}.js`)) {
+		ENTRY[PAGE_NAME] = {
+			dependOn: PATHS.entry.main.replace(/\.(js)/g, ''),
+			import: `${PATHS.entry.catalog}/${PATHS.entry.pages}/${PAGE_NAME}.js`,
 		};
 	} else {
-		console.error('\x1b[31m', `ERROR! No entry page for ${page}`, '\x1b[0m');
-		delete PAGES_ENTRY.main;
+		console.error('\x1b[31m', `Ошибка! Не найдена точка входа для "${page}", страница будет пропущена.`, '\x1b[0m');
 		PAGES.length = 0;
 	}
 });
@@ -45,7 +52,7 @@ module.exports = {
 		paths: PATHS,
 	},
 	mode: process.env.NODE_ENV,
-	entry: PAGES_ENTRY,
+	entry: ENTRY,
 	output: {
 		path: PATHS.output,
 		clean: true,

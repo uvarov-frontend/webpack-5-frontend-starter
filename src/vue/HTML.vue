@@ -23,6 +23,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/styles/mixin.scss';
+@import '@/styles/variables.scss';
+
 .section {
 	text-align: center;
 	min-height: 100px;

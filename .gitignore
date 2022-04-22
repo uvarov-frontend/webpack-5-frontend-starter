@@ -5,6 +5,9 @@
 # Node
 node_modules
 
+# Temp
+main.temp.js
+
 # Build
 build
 

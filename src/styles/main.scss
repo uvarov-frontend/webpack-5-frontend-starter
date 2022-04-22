@@ -1,4 +1,11 @@
+// Plugins
 @import '~normalize.css';
+
+// Main
+@import '@/styles/mixin.scss';
+@import '@/styles/variables.scss';
+
+// Global
 @import '@/styles/global/basic.scss';
 @import '@/styles/global/fonts.scss';
 @import '@/styles/global/header.scss';

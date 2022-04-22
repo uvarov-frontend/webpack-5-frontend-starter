@@ -1,5 +1,9 @@
+@import '@/styles/mixin.scss';
+@import '@/styles/variables.scss';
+
 .section {
 	text-align: center;
 	min-height: 100px;
+
 	// background-image: url('@/img/webpack-logo.svg');
 }

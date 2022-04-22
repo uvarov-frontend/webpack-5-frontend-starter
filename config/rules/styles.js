@@ -1,5 +1,4 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const PATHS = require('../paths');
 const ALIAS = require('../alias');
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -31,12 +30,6 @@ module.exports = {
 			loader: 'sass-loader',
 			options: {
 				sourceMap: !isProd,
-			},
-		},
-		{
-			loader: 'sass-resources-loader',
-			options: {
-				resources: PATHS.stylesGlobal,
 			},
 		},
 		{

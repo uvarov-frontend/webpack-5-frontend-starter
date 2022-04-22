@@ -1,4 +1,5 @@
 const FtpDeploy = require('ftp-deploy');
+const PATHS = require('../config/paths');
 const ftp = require('../.ftp');
 
 /**
@@ -10,7 +11,7 @@ module.exports = {
   port: 21,
   root: '/'
 }
- */
+*/
 
 new FtpDeploy().deploy({
 	user: ftp.user,
@@ -18,7 +19,7 @@ new FtpDeploy().deploy({
 	host: ftp.host,
 	port: ftp.port,
 	remoteRoot: ftp.root,
-	localRoot: `${__dirname}/../build`,
+	localRoot: PATHS.output,
 	include: ['.*', '*', '**/*'],
 	exclude: ['.DS_Store'],
 	deleteRemote: true,

@@ -1,6 +1,6 @@
 {
   "name": "webpack-5-frontend-starter",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Универсальная стартовая frontend сборка Webpack 5 (VUE REACT SCSS PUG TWIG HTML) для одностраничного или многостраничного сайта.",
   "keywords": [
     "webpack",
@@ -32,12 +32,13 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack serve --progress --config ./config/webpack.dev.js",
-    "dev": "cross-env NODE_ENV=development webpack --config ./config/webpack.dev.js",
-    "prod": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js",
-    "analyzer": "webpack-bundle-analyzer --port 4200 build/stats.json",
-    "ftp": "node ./utils/ftp",
-    "clear": "node ./utils/clear"
+    "start": "node ./utils/entry && cross-env NODE_ENV=development TEMP=true webpack serve --config ./config/webpack.dev.js",
+    "dev": "node ./utils/entry && cross-env NODE_ENV=development TEMP=true webpack --config ./config/webpack.dev.js",
+    "prod": "node ./utils/entry && cross-env NODE_ENV=production TEMP=true webpack --config ./config/webpack.prod.js",
+    "utils:analyzer": "webpack-bundle-analyzer --port 4200 build/stats.json",
+    "utils:ftp": "node ./utils/ftp",
+    "utils:clean": "node ./utils/clean",
+    "utils:entry": "node ./utils/entry"
   },
   "browserslist": [
     "> 1%",
@@ -56,7 +57,6 @@
     "autoprefixer": "^10.4.4",
     "babel-loader": "^8.2.4",
     "case-sensitive-paths-webpack-plugin": "^2.4.0",
-    "clear-dir": "^1.0.1",
     "compression-webpack-plugin": "^9.2.0",
     "copy-webpack-plugin": "^10.2.4",
     "cross-env": "^7.0.3",
@@ -84,7 +84,6 @@
     "react-dom": "^18.0.0",
     "sass": "^1.50.0",
     "sass-loader": "^12.6.0",
-    "sass-resources-loader": "^2.2.5",
     "stylelint": "^14.7.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^25.0.0",
