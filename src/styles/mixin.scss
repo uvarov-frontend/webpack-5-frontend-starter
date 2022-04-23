@@ -1,8 +1,8 @@
 // Сетка на внутренних отступах
 @mixin container() {
-	min-width: 320px;
-	padding-left: 0;
-	padding-right: 0;
+	min-width: #{$mw_phone}px;
+	padding-left: 15px;
+	padding-right: 15px;
 
 	@media (min-width: #{$mq_desktop}px) {
 		padding-left: calc(50% - #{$pd_desktop}px);

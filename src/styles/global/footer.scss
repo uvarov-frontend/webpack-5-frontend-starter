@@ -1,15 +1,9 @@
 .footer {
-	$self: &;
-
 	position: relative;
-	z-index: 2;
+	z-index: 1;
 	grid-area: footer;
 	height: 130px;
 	background: $white-dark;
 
 	@include container;
-
-	#{$self}-copyright {
-		display: block;
-	}
 }

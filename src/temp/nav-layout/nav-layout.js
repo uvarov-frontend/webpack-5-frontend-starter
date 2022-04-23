@@ -1,32 +1,12 @@
+import navLayoutTemplate from './nav-layout-template';
+
 const navLayout = {
 	open: false,
 
 	createNavLayout() {
 		const layout = document.createElement('div');
 		layout.className = 'layout-navigation';
-		layout.innerHTML = `
-		<button type="button">Навигация по HTML-страницам</button>
-		<nav>
-			<b>Навигация по HTML-страницам</b>
-			<div>
-				<ul>
-					<li>
-						<a href="index.html">Главная страница</a>
-					</li>
-					<li>
-						<a href="page-pug.html">PUG Шаблон</a>
-					</li>
-					<li>
-						<a href="page-html.html">HTML шаблон</a>
-					</li>
-					<li>
-						<a href="page-twig.html">TWIG шаблон</a>
-					</li>
-				</ul>
-			</div>
-		</nav>
-		<small>by Yury Uvarov</small>
-		`;
+		layout.innerHTML = navLayoutTemplate;
 
 		document.body.append(layout);
 	},

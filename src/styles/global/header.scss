@@ -1,6 +1,4 @@
 .header {
-	$self: &;
-
 	position: relative;
 	z-index: 3;
 	grid-area: header;
@@ -8,8 +6,4 @@
 	background: $white-dark;
 
 	@include container;
-
-	#{$self}-menu {
-		display: block;
-	}
 }

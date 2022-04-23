@@ -1,3 +1,7 @@
+// Main
+@import '@/styles/variables.scss';
+@import '@/styles/mixin.scss';
+
 body {
 	color: green !important;
 }
@@ -6,6 +10,8 @@ body {
 	// background-image: url('@/img/webpack-logo.svg');
 	width: 100%;
 	text-align: center;
+
+	@include container;
 
 	&__title {
 		font-size: 32px;
