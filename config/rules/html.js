@@ -15,10 +15,12 @@ module.exports = {
 				},
 			],
 		},
-		preprocessor: (content) => content.replace(/\url\('~@\/[^)]+'\)/g, (match) => {
-			let url = '';
-			match.replace(/'~@\/[^)]+'/, (path) => { url = path.replace(/'/g, ''); });
-			return `${match.replace(/~@/, '')}" data-src="${url}`;
-		}),
+		preprocessor: (content) => {
+			return content.replace(/\url\('~@\/[^)]+'\)/g, (match) => {
+				let url = '';
+				match.replace(/'~@\/[^)]+'/, (path) => { url = path.replace(/'/g, ''); });
+				return `${match.replace(/~@/, '')}" data-src="${url}`;
+			});
+		},
 	},
 };
