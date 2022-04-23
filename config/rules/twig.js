@@ -21,10 +21,10 @@ module.exports = {
 					],
 				},
 				preprocessor: (content) => {
-					return content.replace(/\url\('~@\/[^)]+'\)/g, (match) => {
+					return content.replace(/\url\('~@\/[^"]+"/g, (match) => {
 						let url = '';
 						match.replace(/'~@\/[^)]+'/, (path) => { url = path.replace(/'/g, ''); });
-						return `${match.replace(/~@/, '')}" data-src="${url}`;
+						return match.replace(/\url\('~@\/[^"]+"/, (style) => { return `${style.replace(/~@/, '')} data-src="${url}"`; });
 					});
 				},
 			},
