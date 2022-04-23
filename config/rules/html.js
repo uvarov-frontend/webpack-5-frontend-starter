@@ -10,6 +10,10 @@ module.exports = {
 					type: 'src',
 				},
 				{
+					attribute: 'srcset',
+					type: 'src',
+				},
+				{
 					attribute: 'data-src',
 					type: 'src',
 				},
