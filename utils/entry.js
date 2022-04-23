@@ -10,6 +10,11 @@ const createEntry = {
 		this.STYLES = undefined;
 	},
 
+	clean() {
+		fs.rmSync(`${PATHS.entry.catalog}/${PATHS.entry.pages}`, { recursive: true, force: true });
+		fs.mkdirSync(`${PATHS.entry.catalog}/${PATHS.entry.pages}`, { recursive: true });
+	},
+
 	search(path, extens) {
 		return fs.readdirSync(path).filter((filename) => {
 			return extens.find((ext) => {
@@ -20,14 +25,14 @@ const createEntry = {
 
 	missing(variables, extens) {
 		return this.PAGES.flatMap((page) => {
-			if (variables.includes(`${page.replace(/\.(pug|html|twig)/g, '')}${extens}`)) return null;
+			if (variables.includes(`${page.replace(/(_)/y, '').replace(/\.(pug|html|twig)/g, '')}${extens}`)) return null;
 			return page;
 		}).filter((page) => { return page; });
 	},
 
 	create(arr, path, imports, extens) {
 		arr.forEach((page) => {
-			const file = page.replace(/\.(pug|html|twig)/g, '');
+			const file = page.replace(/\.(pug|html|twig)/g, '').replace(/(_)/y, '');
 			let data = '';
 
 			if (imports) {
@@ -36,17 +41,13 @@ const createEntry = {
 				data += `import '@/${PATHS.assets.templates}/${PATHS.assets.pages}/${page}';\n`;
 			}
 
-			fs.writeFile(`${path}/${file}${extens}`, data, (err) => {
-				if (err) {
-					console.log('\x1b[31m', err, '\x1b[0m');
-				} else {
-					console.log('\x1b[32m', `Файл ${path}/${file}${extens} создан`, '\x1b[0m');
-				}
-			});
+			fs.writeFile(`${path}/${file}${extens}`, data, (error) => { if (error) console.error(error); });
 		});
 	},
 
 	init() {
+		this.clean();
+
 		this.PAGES = this.search(`${PATHS.src}/${PATHS.assets.templates}/${PATHS.assets.pages}`, ['pug', 'twig', 'html']);
 		this.ENTRY = this.search(`${PATHS.entry.catalog}/${PATHS.entry.pages}`, ['js']);
 		this.SCRIPTS = this.search(`${PATHS.src}/${PATHS.assets.js}/${PATHS.assets.pages}`, ['js']);
@@ -59,6 +60,8 @@ const createEntry = {
 		this.create(this.MISSING_ENTRY, `${PATHS.entry.catalog}/${PATHS.entry.pages}`, true, '.js');
 		this.create(this.MISSING_SCRIPTS, `${PATHS.src}/${PATHS.assets.js}/${PATHS.assets.pages}`, false, '.js');
 		this.create(this.MISSING_STYLES, `${PATHS.src}/${PATHS.assets.styles}/${PATHS.assets.pages}`, false, '.scss');
+
+		return console.log('ENTRY:', '\x1b[32m', 'OK', '\x1b[0m');
 	},
 };
 
