@@ -28,7 +28,6 @@ module.exports = {
 		},
 	},
 	rules: {
-		'arrow-body-style': ['error', 'always'],
 		'react/prop-types': 'off',
 		'max-len': ['error', { code: 180 }],
 		'class-methods-use-this': 'off',

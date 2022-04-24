@@ -16,18 +16,14 @@ const createEntry = {
 	},
 
 	search(path, extens) {
-		return fs.readdirSync(path).filter((filename) => {
-			return extens.find((ext) => {
-				return ext === filename.split('.').pop();
-			});
-		});
+		return fs.readdirSync(path).filter((filename) => extens.find((ext) => ext === filename.split('.').pop()));
 	},
 
 	missing(variables, extens) {
 		return this.PAGES.flatMap((page) => {
 			if (variables.includes(`${page.replace(/(_)/y, '').replace(/\.(pug|html|twig)/g, '')}${extens}`)) return null;
 			return page;
-		}).filter((page) => { return page; });
+		}).filter((page) => page);
 	},
 
 	create(arr, path, imports, extens) {

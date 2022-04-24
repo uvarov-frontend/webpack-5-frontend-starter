@@ -20,13 +20,11 @@ module.exports = {
 						},
 					],
 				},
-				preprocessor: (content) => {
-					return content.replace(/\url\('~@\/[^"]+"/g, (match) => {
-						let url = '';
-						match.replace(/'~@\/[^)]+'/, (path) => { url = path.replace(/'/g, ''); });
-						return match.replace(/\url\('~@\/[^"]+"/, (style) => { return `${style.replace(/~@/, '')} data-src="${url}"`; });
-					});
-				},
+				preprocessor: (content) => content.replace(/\url\('~@\/[^"]+"/g, (match) => {
+					let url = '';
+					match.replace(/'~@\/[^)]+'/, (path) => { url = path.replace(/'/g, ''); });
+					return match.replace(/\url\('~@\/[^"]+"/, (style) => `${style.replace(/~@/, '')} data-src="${url}"`);
+				}),
 			},
 		},
 		{

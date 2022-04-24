@@ -4,7 +4,7 @@ module.exports = {
 	test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
 	type: 'asset/resource',
 	generator: {
-		filename: (PathData) => { return PathData.filename.replace('src/', ''); },
+		filename: (PathData) => PathData.filename.replace('src/', ''),
 	},
 	loader: 'image-webpack-loader',
 	options: {

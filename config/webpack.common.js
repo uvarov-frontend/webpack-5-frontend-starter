@@ -14,7 +14,7 @@ const ALIAS = require('./alias');
 const TEMP = require('./temp');
 
 const RULES = [];
-fs.readdirSync(PATHS.rules).filter((filename) => { return RULES.push(require(`${PATHS.rules}/${filename}`)); });
+fs.readdirSync(PATHS.rules).filter((filename) => RULES.push(require(`${PATHS.rules}/${filename}`)));
 
 TEMP.init();
 
@@ -22,14 +22,10 @@ const ENTRY = {
 	main: `${PATHS.entry.catalog}/${process.env.TEMP === 'true' ? PATHS.entry.temp : PATHS.entry.main}`,
 };
 
-const PAGE_EXT = (filename) => {
-	return ['pug', 'twig', 'html'].find((ext) => {
-		return ext === filename.split('.').pop();
-	});
-};
+const PAGE_EXT = (filename) => ['pug', 'twig', 'html'].find((ext) => ext === filename.split('.').pop());
 
 const PAGES_DIR = `${PATHS.src}/${PATHS.assets.templates}/${PATHS.assets.pages}`;
-const DEVELOP_PAGES = fs.readdirSync(PAGES_DIR).filter((filename) => { return filename.startsWith('_'); });
+const DEVELOP_PAGES = fs.readdirSync(PAGES_DIR).filter((filename) => filename.startsWith('_'));
 const PAGES = DEVELOP_PAGES.length > 0 ? DEVELOP_PAGES : fs.readdirSync(PAGES_DIR).filter(PAGE_EXT);
 
 PAGES.forEach((page) => {
