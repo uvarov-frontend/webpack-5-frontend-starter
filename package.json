@@ -2,7 +2,8 @@
   "name": "webpack-5-frontend-starter",
   "version": "1.3.0",
   "description": "Универсальная стартовая frontend сборка Webpack 5 (VUE REACT SCSS PUG TWIG HTML) для одностраничного или многостраничного сайта.",
-  "keywords": [
+  "homepage": "https://frontend.uvarov.tech",
+	"keywords": [
     "webpack",
     "frontend",
     "layout",
