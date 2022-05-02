@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 const PATHS = require('./paths');
 const ALIAS = require('./alias');
@@ -73,6 +74,7 @@ module.exports = {
 		rules: RULES,
 	},
 	plugins: [
+		new DashboardPlugin(),
 		new CaseSensitivePathsPlugin(),
 		new VueLoaderPlugin(),
 		new CopyWebpackPlugin({
