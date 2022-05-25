@@ -1,4 +1,4 @@
-const Webpack = require('webpack');
+const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlBeautifyPlugin = require('@nurminen/html-beautify-webpack-plugin');
@@ -28,7 +28,7 @@ module.exports = merge(common, {
 	plugins: [
 		new BundleAnalyzerPlugin({
 			analyzerMode: 'disabled',
-			generateStatsFile: true,
+			generateStatsFile: process.env.ANALYZER === 'true',
 			statsOptions: {
 				source: false,
 			},
@@ -53,7 +53,7 @@ module.exports = merge(common, {
 			},
 			replace: ['type="text/javascript"'],
 		}),
-		new Webpack.DefinePlugin({
+		new webpack.DefinePlugin({
 			__VUE_OPTIONS_API__: true,
 			__VUE_PROD_DEVTOOLS__: false,
 		}),

@@ -1,4 +1,4 @@
-const Webpack = require('webpack');
+const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -19,10 +19,11 @@ module.exports = merge(common, {
 		hot: true,
 		historyApiFallback: true,
 		compress: true,
+		allowedHosts: 'all',
 		client: {
 			logging: 'info',
 			overlay: true,
-			progress: true,
+			progress: false,
 		},
 	},
 	plugins: [
@@ -30,7 +31,7 @@ module.exports = merge(common, {
 			filename: `${common.externals.paths.assets.styles}/[name].css`,
 			linkType: false,
 		}),
-		new Webpack.DefinePlugin({
+		new webpack.DefinePlugin({
 			__VUE_OPTIONS_API__: true,
 			__VUE_PROD_DEVTOOLS__: true,
 		}),

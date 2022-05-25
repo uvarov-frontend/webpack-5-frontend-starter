@@ -3,21 +3,20 @@
 /* eslint-disable no-console */
 
 const fs = require('fs');
+const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
-const DashboardPlugin = require('webpack-dashboard/plugin');
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+
+const smp = new SpeedMeasurePlugin({ disable: process.env.MEASURE !== 'true', granularLoaderData: true });
 
 const PATHS = require('./paths');
 const ALIAS = require('./alias');
-const TEMP = require('./temp');
 
 const RULES = [];
 fs.readdirSync(PATHS.rules).filter((filename) => RULES.push(require(`${PATHS.rules}/${filename}`)));
-
-TEMP.init();
 
 const ENTRY = {
 	main: `${PATHS.entry.catalog}/${process.env.TEMP === 'true' ? PATHS.entry.temp : PATHS.entry.main}`,
@@ -44,10 +43,11 @@ PAGES.forEach((page) => {
 	}
 });
 
-module.exports = {
+module.exports = smp.wrap({
 	externals: {
 		paths: PATHS,
 	},
+	stats: 'errors-warnings',
 	mode: process.env.NODE_ENV,
 	entry: ENTRY,
 	output: {
@@ -74,8 +74,9 @@ module.exports = {
 		rules: RULES,
 	},
 	plugins: [
-		new DashboardPlugin(),
-		new CaseSensitivePathsPlugin(),
+		new webpack.ProgressPlugin({
+			percentBy: 'entries',
+		}),
 		new VueLoaderPlugin(),
 		new CopyWebpackPlugin({
 			patterns: [{
@@ -103,4 +104,4 @@ module.exports = {
 			},
 		]),
 	],
-};
+});
