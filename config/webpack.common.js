@@ -18,8 +18,9 @@ const ALIAS = require('./alias');
 const RULES = [];
 fs.readdirSync(PATHS.rules).filter((filename) => RULES.push(require(`${PATHS.rules}/${filename}`)));
 
+const TEMP = process.env.npm_package_scripts_temp.split('TEMP=')[1].split(' ')[0] !== 'false';
 const ENTRY = {
-	main: `${PATHS.entry.catalog}/${process.env.TEMP === 'true' ? PATHS.entry.temp : PATHS.entry.main}`,
+	main: `${PATHS.entry.catalog}/${TEMP !== false && TEMP !== 'false' ? PATHS.entry.temp : PATHS.entry.main}`,
 };
 
 const PAGE_EXT = (filename) => ['pug', 'twig', 'html'].find((ext) => ext === filename.split('.').pop());

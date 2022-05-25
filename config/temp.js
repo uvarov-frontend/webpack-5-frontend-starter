@@ -9,7 +9,8 @@ const createTemp = {
 			if (!error) fs.unlink(`${PATHS.entry.catalog}/${PATHS.entry.temp}`, (errorUnlink) => { if (errorUnlink) console.error(errorUnlink); });
 		});
 
-		if (process.env.npm_lifecycle_script.split('TEMP=')[1].split(' ')[0] !== 'false') {
+		const TEMP = process.env.npm_lifecycle_script.split('TEMP=')[1].split(' ')[0];
+		if (TEMP !== false && TEMP !== 'false') {
 			fs.readFile(`${PATHS.entry.catalog}/${PATHS.entry.main}`, 'utf8', (error, data) => {
 				if (error) return console.error(error);
 				const result = data + PATHS.temp;
