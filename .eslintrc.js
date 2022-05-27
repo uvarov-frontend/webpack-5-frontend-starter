@@ -22,9 +22,9 @@ module.exports = {
 	],
 	settings: {
 		'import/resolver': {
-			webpack: {
-				config: './config/webpack.common.js',
-			},
+			alias: [
+				['@', './src'],
+			],
 		},
 	},
 	rules: {

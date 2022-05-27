@@ -33,11 +33,11 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-		"utils:analyzer": "webpack-bundle-analyzer --port 4200 build/stats.json",
+    "utils:analyzer": "webpack-bundle-analyzer --port 4200 build/stats.json",
     "utils:ftp": "node ./utils/ftp",
     "utils:clean": "node ./utils/clean",
     "utils:entry": "node ./utils/entry",
-		"temp": "node ./config/temp.js TEMP=true",
+    "temp": "node ./config/temp.js TEMP=true",
     "start": "npm run utils:entry --silent && npm run temp --silent && cross-env NODE_ENV=development webpack serve --config ./config/webpack.dev.js",
     "dev": "npm run utils:entry --silent && npm run temp --silent && cross-env NODE_ENV=development MEASURE=false webpack --config ./config/webpack.dev.js",
     "prod": "npm run utils:entry --silent && npm run temp --silent && cross-env NODE_ENV=production ANALYZER=false webpack --config ./config/webpack.prod.js"
@@ -65,7 +65,7 @@
     "cssnano": "^5.1.9",
     "eslint": "^8.16.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-import-resolver-webpack": "^0.13.2",
+    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-vue": "^9.0.1",
