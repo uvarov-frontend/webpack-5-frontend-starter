@@ -1,2 +1,1 @@
-/* eslint-disable import/no-unresolved */
-import '@/js/global/**/*.js';
+import '@/js/global/author.js';

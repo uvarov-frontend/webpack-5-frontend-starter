@@ -1,5 +1,4 @@
 const PATHS = require('../paths');
-const ALIAS = require('../alias');
 
 module.exports = {
 	test: /\.js$/,
@@ -10,14 +9,6 @@ module.exports = {
 			loader: 'babel-loader',
 			options: {
 				presets: ['@babel/preset-env'],
-			},
-		},
-		{
-			loader: 'glob-import-loader',
-			options: {
-				resolve: {
-					alias: ALIAS,
-				},
 			},
 		},
 	],

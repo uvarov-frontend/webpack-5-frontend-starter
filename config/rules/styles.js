@@ -1,5 +1,4 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ALIAS = require('../alias');
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -30,14 +29,6 @@ module.exports = {
 			loader: 'sass-loader',
 			options: {
 				sourceMap: !isProd,
-			},
-		},
-		{
-			loader: 'glob-import-loader',
-			options: {
-				resolve: {
-					alias: ALIAS,
-				},
 			},
 		},
 	],

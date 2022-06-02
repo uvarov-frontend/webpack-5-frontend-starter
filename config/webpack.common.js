@@ -8,9 +8,6 @@ const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
-
-const smp = new SpeedMeasurePlugin({ disable: process.env.MEASURE !== 'true', granularLoaderData: true });
 
 const PATHS = require('./paths');
 const ALIAS = require('./alias');
@@ -44,7 +41,7 @@ PAGES.forEach((page) => {
 	}
 });
 
-module.exports = smp.wrap({
+module.exports = {
 	externals: {
 		paths: PATHS,
 	},
@@ -105,4 +102,4 @@ module.exports = smp.wrap({
 			},
 		]),
 	],
-});
+};

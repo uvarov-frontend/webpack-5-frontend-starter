@@ -13,7 +13,9 @@
 @import '@/styles/global/wrapper.scss';
 
 // Common
-@import '@/styles/common/**/*.scss';
+@import '@/styles/common/animation.scss';
+@import '@/styles/common/btn.scss';
+@import '@/styles/common/global.scss';
 
 // Components
 @import '@/styles/components/preloader.scss';

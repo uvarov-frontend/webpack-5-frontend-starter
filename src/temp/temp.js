@@ -1,2 +1,2 @@
-/* eslint-disable import/no-unresolved */
-import '@/temp/**/*.*';
+import '@/temp/nav-layout/nav-layout.js';
+import '@/temp/nav-layout/nav-layout.scss';

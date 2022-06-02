@@ -16,7 +16,7 @@ body {
 	font-weight: 400;
 	color: $black;
 	background: $white;
-	font-family: $ProximaNova;
+	font-family: $Lato;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -83,4 +83,13 @@ strong {
 
 iframe {
 	max-width: 100%;
+}
+
+code,
+pre {
+	font-family: $JetBrainsMono;
+
+	* {
+		font-family: $JetBrainsMono;
+	}
 }
