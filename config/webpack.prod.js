@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const TerserPlugin = require('terser-webpack-plugin');
-const HtmlBeautifyPlugin = require('@nurminen/html-beautify-webpack-plugin');
+const HtmlBeautifierPlugin = require('html-beautifier-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const { BundleStatsWebpackPlugin } = require('bundle-stats-webpack-plugin');
@@ -36,18 +36,15 @@ module.exports = merge(common, {
 			filename: `${common.externals.paths.assets.styles}/[name].[contenthash:6].css`,
 			linkType: false,
 		}),
-		new HtmlBeautifyPlugin({
-			config: {
-				html: {
-					end_with_newline: true,
-					indent_size: 2,
-					indent_with_tabs: true,
-					indent_inner_html: true,
-					preserve_newlines: true,
-					inline: [],
-				},
+		new HtmlBeautifierPlugin({
+			html: {
+				end_with_newline: true,
+				indent_size: 2,
+				indent_with_tabs: true,
+				indent_inner_html: true,
+				preserve_newlines: true,
+				inline: [],
 			},
-			replace: ['type="text/javascript"'],
 		}),
 		new webpack.DefinePlugin({
 			__VUE_OPTIONS_API__: true,
