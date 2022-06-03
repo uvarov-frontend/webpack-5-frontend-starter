@@ -4,7 +4,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const HtmlBeautifyPlugin = require('@nurminen/html-beautify-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { BundleStatsWebpackPlugin } = require('bundle-stats-webpack-plugin');
 
 const common = require('./webpack.common.js');
 
@@ -26,13 +26,7 @@ module.exports = merge(common, {
 		],
 	},
 	plugins: [
-		new BundleAnalyzerPlugin({
-			analyzerMode: 'disabled',
-			generateStatsFile: process.env.ANALYZER === 'true',
-			statsOptions: {
-				source: false,
-			},
-		}),
+		new BundleStatsWebpackPlugin(),
 		new CompressionPlugin({
 			test: /\.(js|css|html)$/i,
 		}),
