@@ -26,7 +26,9 @@ module.exports = merge(common, {
 		],
 	},
 	plugins: [
-		new BundleStatsWebpackPlugin(),
+		new BundleStatsWebpackPlugin({
+			baseline: true,
+		}),
 		new CompressionPlugin({
 			test: /\.(js|css|html)$/i,
 		}),
