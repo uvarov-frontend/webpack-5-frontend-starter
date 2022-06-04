@@ -7,6 +7,8 @@ body {
 }
 
 .section {
+	$section: &;
+
 	// background-image: url('@/img/webpack-logo.svg');
 	width: 100%;
 	text-align: center;
@@ -18,22 +20,25 @@ body {
 		padding: 0;
 	}
 
-	&__title {
-		font-size: 32px;
-	}
+	#{$section} {
 
-	&__img {
-
-		&_big {
-			width: 150px;
+		&__title {
+			font-size: 32px;
 		}
 
-		&_medium {
-			width: 80px;
-		}
+		&__img {
 
-		&_small {
-			width: 50px;
+			&_big {
+				width: 150px;
+			}
+
+			&_medium {
+				width: 80px;
+			}
+
+			&_small {
+				width: 50px;
+			}
 		}
 	}
 }
