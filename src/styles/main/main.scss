@@ -1,41 +1,25 @@
-$widthMainContent: 825;
-$widthSidebarContent: 340;
-
 .wrapper {
 	position: relative;
+	z-index: 1;
 	display: grid;
 	grid-template-rows: auto 1fr auto;
 	grid-template-areas: 'header' 'main' 'footer';
 	min-height: 100vh;
+	min-width: #{$mw_phone}px;
 }
 
 .main-wrapper {
 	position: relative;
 	z-index: 2;
 	grid-area: main;
-	min-height: 250px;
 	display: grid;
-	gap: 15px;
 	grid-template-areas: 'main-content main-sidebar';
-	grid-template-columns: #{$widthMainContent}px #{$widthSidebarContent}px;
-
-	@include container;
+	grid-template-columns: 1fr auto;
 
 	@include mq('desktop') {
-		grid-template-columns: 100%;
+		grid-template-columns: 1fr;
 		grid-template-areas: 'main-content' 'main-sidebar';
 		gap: 0;
-	}
-
-	&_no-sidebar {
-		grid-template-areas: 'main-content';
-		grid-template-columns: 100%;
-		padding-left: 0;
-		padding-right: 0;
-
-		& .main-content {
-			max-width: 100%;
-		}
 	}
 }
 
@@ -43,22 +27,22 @@ $widthSidebarContent: 340;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	max-width: #{$widthMainContent}px;
-
-	@include mq('desktop') {
-		max-width: 100%;
-		min-width: #{$mw_phone}px;
-	}
+	min-width: 0;
+	width: 100%;
+	max-width: 100%;
 }
 
 .main-sidebar {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	max-width: #{$widthSidebarContent}px;
+	width: 320px;
+	margin-left: 15px;
+	min-width: 0;
+	max-width: 100%;
 
 	@include mq('desktop') {
-		max-width: 100%;
-		min-width: #{$mw_phone}px;
+		width: 100%;
+		margin-left: 0;
 	}
 }

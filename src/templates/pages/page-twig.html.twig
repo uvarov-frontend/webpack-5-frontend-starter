@@ -13,21 +13,22 @@
 
 	<body>
 		<div class="wrapper">
-			<header class="header"></header>
-			<div class="main-wrapper main-wrapper_no-sidebar">
+			<header class="main-header"></header>
+			<div class="main-wrapper">
 				<main class="main-content">
 					{% set images = "~@/img/pug-logo.png" %}
 
-					<section class="section-main text-center" style="background-image: url('{{ images }}')">
-						<h1 class="section-main__title">{{ title }}</h1>
-						<img src="~@/img/webpack-logo.svg" alt="logo" class="section-main__img section-main__img_big">
+					{# <section class="section text-center" style="background-image: url('{{ images }}')"> #}
+					<section class="section text-center">
+						<h1 class="section__title">{{ title }}</h1>
+						<img src="~@/img/webpack-logo.svg" alt="logo" class="section__img section__img_big">
 
 						<div id="react-app"></div>
 					</section>
 
 				</main>
 			</div>
-			<footer class="footer"></footer>
+			<footer class="main-footer"></footer>
 		</div>
 	</body>
 

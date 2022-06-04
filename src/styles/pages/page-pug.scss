@@ -3,13 +3,14 @@
 @import '@/styles/mixin.scss';
 
 body {
-	color: green !important;
+	color: seagreen !important;
 }
 
-.section-main {
+.section {
 	// background-image: url('@/img/webpack-logo.svg');
 	width: 100%;
 	text-align: center;
+	flex-grow: 1;
 
 	@include container;
 
@@ -37,7 +38,75 @@ body {
 	}
 }
 
+.scroller {
+	padding: 0 14px;
+	width: calc(100% - 28px);
+}
+
+.item {
+	display: inline-block;
+	vertical-align: bottom;
+	width: 100px;
+	height: 100px;
+	background-color: whitesmoke;
+	border-radius: 4px;
+	margin-right: 10px;
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
 .logo {
 	display: block;
 	margin: 0 auto;
+}
+
+.preloader {
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	background-color: white;
+
+	&.is-loaded {
+		opacity: 0;
+		visibility: hidden;
+		z-index: -1;
+		pointer-events: none;
+		transition: all 0.2s ease 0.1s;
+
+		& progress {
+			opacity: 0;
+			transition: opacity 0.1s;
+		}
+	}
+
+	progress {
+		display: block;
+		margin: auto;
+		appearance: none;
+		border: 0;
+		height: 7px;
+		width: 150px;
+		border-radius: 5px;
+
+		&::-webkit-progress-bar {
+			background-color: gainsboro;
+			border-radius: 5px;
+		}
+
+		&::-webkit-progress-value {
+			background-color: dodgerblue;
+			border-radius: 5px;
+		}
+
+		&::-moz-progress-bar {
+			background-color: dodgerblue;
+			border-radius: 5px;
+		}
+	}
 }

@@ -1,21 +1,40 @@
 extends ../layout
 
 //- Mixins
-include ../mixin/img
+mixin img(src, title, selector)
+	- var path = `~@/img/${src}`;
+	img(src=path alt=title class=selector)
+
 
 //- Variables
 block variables
 	- var title = 'PUG шаблон';
-	- var sidebar = false;
 	- var images = "~@/img/pug-logo.png";
 
+
+block start-body
+	.preloader#preloader
+		progress(max="100" value="0")
+
 block content
-	//- section.b-section-main.text-center(style=`background-image: url('${images}')`)
-	section.b-section-main.text-center
-		h1.__title= title
-		include ../components/scroller
-		+img('webpack-logo.svg','logo','logo section-main__img section-main__img_big')
-		img(src=images alt="logo").__img._medium
-		br
-		img(src="~@/img/sass-logo.png" alt="logo").__img._small
-		#vue-app
+	main.main-content
+		//- section.b-section-main.text-center(style=`background-image: url('${images}')`)
+		section.b-section.text-center
+			h1.__title= title
+			.b-scroller
+				.__list
+					.item
+					.item
+					.item
+					.item
+					.item
+					.item
+					.item
+					.item
+					.item
+					.item
+			+img('webpack-logo.svg','logo','logo section__img section__img_big')
+			img(src=images alt="logo").__img._medium
+			br
+			img(src="~@/img/sass-logo.png" alt="logo").__img._small
+			#vue-app

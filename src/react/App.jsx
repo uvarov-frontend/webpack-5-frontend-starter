@@ -8,7 +8,7 @@ const App = () => {
 	const text = 'React components';
 
 	return (
-		<section className="section">
+		<section className="section-react">
 			<Block text={text} image={image}/>
 		</section>
 	);

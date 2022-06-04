@@ -1,5 +1,5 @@
 <template lang="pug">
-section.b-section
+section.b-section-vue
 	.container
 		p.__message._green {{ message }}
 		img(src="~@/img/vuejs-logo.jpg", :alt="message").__img
@@ -22,14 +22,14 @@ export default {
 @import '@/styles/mixin.scss';
 @import '@/styles/variables.scss';
 
-.section {
+.section-vue {
 	text-align: center;
 	min-height: 100px;
 	// background-image: url('@/img/webpack-logo.svg');
 
 	&__message {
 		&_green {
-			color: $green;
+			color: seagreen;
 		}
 	}
 

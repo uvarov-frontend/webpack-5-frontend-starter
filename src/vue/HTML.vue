@@ -1,10 +1,10 @@
 <template>
-<section class="section">
+<section class="section-vue">
 	<div class="container">
-		<p class="section__message section__message_green">
+		<p class="section-vue__message section-vue__message_green">
 			{{ message }}
 		</p>
-		<img class="section__img" src="~@/img/vuejs-logo.jpg" :alt="message">
+		<img class="section-vue__img" src="~@/img/vuejs-logo.jpg" :alt="message">
 	</div>
 </section>
 </template>
@@ -26,14 +26,14 @@ export default {
 @import '@/styles/mixin.scss';
 @import '@/styles/variables.scss';
 
-.section {
+.section-vue {
 	text-align: center;
 	min-height: 100px;
 	// background-image: url('@/img/webpack-logo.svg');
 
 	&__message {
 		&_green {
-			color: $green;
+			color: seagreen;
 		}
 	}
 

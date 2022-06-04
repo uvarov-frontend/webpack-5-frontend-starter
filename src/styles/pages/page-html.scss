@@ -6,10 +6,11 @@ body {
 	color: hotpink !important;
 }
 
-.section-main {
+.section {
 	// background-image: url('@/img/webpack-logo.svg');
 	width: 100%;
 	text-align: center;
+	flex-grow: 1;
 
 	@include container;
 

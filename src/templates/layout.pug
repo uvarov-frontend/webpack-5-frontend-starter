@@ -17,21 +17,11 @@ html(lang="ru-RU")
 		block head
 
 	body
-		include components/preloader
+		block start-body
 		.wrapper
-			//- Header
-			include global/header
-
-			//- Content
-			.main-wrapper(class=`${sidebar ? '' : 'main-wrapper_no-sidebar'}`)
-				main.main-content
-					block content
-				if sidebar
-					aside.main-sidebar
-						block sidebar
-
-			//- Footer
-			include global/footer
-
-			//- Endbody
-			block endbody
+			include main/main-header
+			.main-wrapper
+				block content
+				block sidebar
+			include main/main-footer
+		block end-body
