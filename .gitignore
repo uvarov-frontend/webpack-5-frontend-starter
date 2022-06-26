@@ -10,6 +10,7 @@ main.temp.js
 
 # Build
 build
+npm/build
 
 # FTP
 .ftp
