@@ -3,6 +3,7 @@
 /* eslint-disable no-console */
 
 const fs = require('fs');
+const readDir = require('readdir');
 const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -20,15 +21,13 @@ const ENTRY = {
 	main: `${PATHS.entry.catalog}/${TEMP !== false && TEMP !== 'false' ? PATHS.entry.temp : PATHS.entry.main}`,
 };
 
-const PAGE_EXT = (filename) => ['pug', 'twig', 'html'].find((ext) => ext === filename.split('.').pop());
-
 const PAGES_DIR = `${PATHS.src}/${PATHS.assets.templates}/${PATHS.assets.pages}`;
 const DEVELOP_PAGES = fs.readdirSync(PAGES_DIR).filter((filename) => filename.startsWith('_'));
-const PAGES = DEVELOP_PAGES.length > 0 ? DEVELOP_PAGES : fs.readdirSync(PAGES_DIR).filter(PAGE_EXT);
+const PAGES = DEVELOP_PAGES.length > 0 ? DEVELOP_PAGES : readDir.readSync(PAGES_DIR, ['**.pug', '**.twig', '**.html']);
 
 PAGES.forEach((page) => {
 	const PAGE_NAME = page.replace(/^_/g, '').replace(/\.(pug|html|twig)/g, '');
-	const ENTRY_PAGES = fs.readdirSync(`${PATHS.entry.catalog}/${PATHS.entry.pages}`);
+	const ENTRY_PAGES = readDir.readSync(`${PATHS.entry.catalog}/${PATHS.entry.pages}`, ['**.js']);
 
 	if (ENTRY_PAGES.includes(`${PAGE_NAME}.js`)) {
 		ENTRY[PAGE_NAME] = {

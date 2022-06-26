@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 const fs = require('fs');
+const readDir = require('readdir');
 const PATHS = require('../config/paths');
 
 const createEntry = {
@@ -16,7 +17,7 @@ const createEntry = {
 	},
 
 	search(path, extens) {
-		return fs.readdirSync(path).filter((filename) => extens.find((ext) => ext === filename.split('.').pop()));
+		return readDir.readSync(path, extens);
 	},
 
 	missing(variables, extens) {
@@ -29,7 +30,12 @@ const createEntry = {
 	create(arr, path, imports, extens) {
 		arr.forEach((page) => {
 			const file = page.replace(/\.(pug|html|twig)/g, '').replace(/(_)/y, '');
+			const dir = `${path}/${file}${extens}`.replace(/[^/]+$/, '');
 			let data = '';
+
+			if (!fs.existsSync(dir)) {
+				fs.mkdirSync(dir, { recursive: true });
+			}
 
 			if (imports) {
 				data += `import '@/${PATHS.assets.js}/${PATHS.assets.pages}/${file}.js';\n`;
@@ -44,10 +50,10 @@ const createEntry = {
 	init() {
 		this.clean();
 
-		this.PAGES = this.search(`${PATHS.src}/${PATHS.assets.templates}/${PATHS.assets.pages}`, ['pug', 'twig', 'html']);
-		this.ENTRY = this.search(`${PATHS.entry.catalog}/${PATHS.entry.pages}`, ['js']);
-		this.SCRIPTS = this.search(`${PATHS.src}/${PATHS.assets.js}/${PATHS.assets.pages}`, ['js']);
-		this.STYLES = this.search(`${PATHS.src}/${PATHS.assets.styles}/${PATHS.assets.pages}`, ['scss']);
+		this.PAGES = this.search(`${PATHS.src}/${PATHS.assets.templates}/${PATHS.assets.pages}`, ['**.pug', '**.twig', '**.html']);
+		this.ENTRY = this.search(`${PATHS.entry.catalog}/${PATHS.entry.pages}`, ['**.js']);
+		this.SCRIPTS = this.search(`${PATHS.src}/${PATHS.assets.js}/${PATHS.assets.pages}`, ['**.js']);
+		this.STYLES = this.search(`${PATHS.src}/${PATHS.assets.styles}/${PATHS.assets.pages}`, ['**.scss']);
 
 		this.MISSING_ENTRY = this.missing(this.ENTRY, '.js');
 		this.MISSING_SCRIPTS = this.missing(this.SCRIPTS, '.js');
