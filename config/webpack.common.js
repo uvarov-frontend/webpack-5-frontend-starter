@@ -39,6 +39,11 @@ PAGES.forEach((page) => {
 	}
 });
 
+const getFavicon = () => {
+	const favicon = readDir.readSync(`${PATHS.src}/${PATHS.assets.static}`, ['favicon.*'])[0];
+	return `${PATHS.src}/${PATHS.assets.static}/${favicon}`;
+};
+
 module.exports = {
 	externals: {
 		paths: PATHS,
@@ -78,6 +83,11 @@ module.exports = {
 			patterns: [{
 				from: `${PATHS.src}/${PATHS.assets.static}`,
 				to: PATHS.output,
+				globOptions: {
+					dot: true,
+					gitignore: true,
+					ignore: ['**/favicon.*'],
+				},
 			}],
 		}),
 		...PAGES.map(
@@ -87,6 +97,7 @@ module.exports = {
 					template: `${PAGES_DIR}/${page}`,
 					filename: `./${PAGE_NAME}.html`,
 					chunks: ['main', `${PAGE_NAME}`],
+					favicon: getFavicon(),
 					cache: true,
 					minify: false,
 					inject: false,

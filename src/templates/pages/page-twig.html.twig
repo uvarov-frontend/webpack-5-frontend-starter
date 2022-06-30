@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="ru-RU">
 	{% set title = 'TWIG шаблон' %}
+	{% set description = '#' %}
+	{% set keywords = '#' %}
 
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1.0, width=device-width">
 		<meta name="format-detection" content="telephone=no">
 		<title>{{ title }}</title>
-		<!-- webpackIgnore: true -->
-		<link rel="shortcut icon" href="/favicon.svg">
+		<meta name="description" content="{{ description }}">
+		<meta name="keywords" content="{{ keywords }}">
 		<%= htmlWebpackPlugin.tags.headTags %>
 	</head>
 

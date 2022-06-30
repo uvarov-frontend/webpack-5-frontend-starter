@@ -1,33 +1,30 @@
 <!DOCTYPE html>
 <html lang="ru-RU">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+		<meta name="format-detection" content="telephone=no" />
+		<title>HTML шаблон</title>
+		<meta name="description" content="#">
+		<meta name="keywords" content="#">
+		<%= htmlWebpackPlugin.tags.headTags %>
+	</head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="initial-scale=1.0, width=device-width">
-	<meta name="format-detection" content="telephone=no">
-	<title>HTML шаблон</title>
-	<!-- webpackIgnore: true -->
-	<link rel="shortcut icon" href="/favicon.svg">
-	<%= htmlWebpackPlugin.tags.headTags %>
-</head>
+	<body>
+		<div class="wrapper">
+			<header class="main-header"></header>
+			<div class="main-wrapper">
+				<main class="main-content">
+					<!-- <section class="section text-center" style="background-image: url('${require(`@/img/sass-logo.png`)}')"> -->
+					<section class="section text-center">
+						<h1 class="section__title">HTML шаблон</h1>
+						<img src="~@/img/webpack-logo.svg" alt="logo" class="section__img section__img_big">
 
-<body>
-	<div class="wrapper">
-		<header class="main-header"></header>
-		<div class="main-wrapper">
-			<main class="main-content">
-				<!-- <section class="section text-center" style="background-image: url('${require(`@/img/sass-logo.png`)}')"> -->
-				<section class="section text-center">
-					<h1 class="section__title">HTML шаблон</h1>
-					<img src="~@/img/webpack-logo.svg" alt="logo" class="section__img section__img_big">
-
-					<div id="vue-app"></div>
-				</section>
-
-			</main>
+						<div id="vue-app"></div>
+					</section>
+				</main>
+			</div>
+			<footer class="main-footer"></footer>
 		</div>
-		<footer class="main-footer"></footer>
-	</div>
-</body>
-
+	</body>
 </html>

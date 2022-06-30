@@ -1,9 +1,13 @@
 //- Variables
+- var lang = 'ru-RU';
+- var title = '#'
+- var description = '#'
+- var keywords = '#'
 - var sidebar = true;
 block variables
 
 doctype html
-html(lang="ru-RU")
+html(lang=lang)
 
 	//- Head
 	head
@@ -11,8 +15,8 @@ html(lang="ru-RU")
 		meta(name="viewport" content="initial-scale=1.0, width=device-width")
 		meta(name="format-detection" content="telephone=no")
 		title= title
-		<!-- webpackIgnore: true -->
-		link(rel="shortcut icon" href="/favicon.svg")
+		meta(name="description" content=description)
+		meta(name="keywords" content=keywords)
 		<%= htmlWebpackPlugin.tags.headTags %>
 
 		block head

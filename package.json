@@ -1,6 +1,6 @@
 {
 	"name": "webpack-5-frontend-starter",
-	"version": "1.3.2",
+	"version": "1.3.3",
 	"description": "Webpack 5 universal starter frontend build (VUE REACT SCSS PUG TWIG HTML) for a single page or multipage site.",
 	"homepage": "https://frontend.uvarov.tech",
 	"keywords": [
