@@ -3,7 +3,7 @@ extends ../layout
 //- Variables
 block variables
 	- var title = 'PUG шаблон';
-	- var images = '~@/img/pug-logo.png';
+	- var images = "${require('@/img/pug-logo.png')}";
 	- var img = "${require('@/img/pug-logo.png')}, ${require('@/img/pug-logo@2x.png')} 2x";
 
 block start-body
@@ -33,7 +33,7 @@ block content
 					srcset=img
 					alt="logo")
 			br
-			img(src="~@/img/sass-logo.png"
+			img(src="${require('@/img/sass-logo.png')}"
 				srcset="${require('@/img/sass-logo.png')}, ${require('@/img/sass-logo@2x.png')} 2x"
 				alt="logo").__img._small
 			#vue-app

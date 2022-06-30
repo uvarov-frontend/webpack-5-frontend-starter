@@ -98,6 +98,7 @@ module.exports = {
 					filename: `./${PAGE_NAME}.html`,
 					chunks: ['main', `${PAGE_NAME}`],
 					favicon: getFavicon(),
+					base: '/',
 					cache: true,
 					minify: false,
 					inject: false,
