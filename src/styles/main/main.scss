@@ -17,9 +17,8 @@
 	grid-template-columns: 1fr auto;
 
 	@include mq('desktop') {
-		grid-template-columns: 1fr;
 		grid-template-areas: 'main-content' 'main-sidebar';
-		gap: 0;
+		grid-template-columns: 1fr;
 	}
 }
 
