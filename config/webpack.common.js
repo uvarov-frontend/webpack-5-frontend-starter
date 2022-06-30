@@ -7,7 +7,6 @@ const readDir = require('readdir');
 const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlReplaceWebpackPlugin = require('html-replace-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const PATHS = require('./paths');
@@ -89,16 +88,10 @@ module.exports = {
 					filename: `./${PAGE_NAME}.html`,
 					chunks: ['main', `${PAGE_NAME}`],
 					cache: true,
-					scriptLoading: 'blocking',
-					base: '/',
+					minify: false,
+					inject: false,
 				});
 			},
 		),
-		new HtmlReplaceWebpackPlugin([
-			{
-				pattern: / data-src="[^"]+"/g,
-				replacement: '',
-			},
-		]),
 	],
 };

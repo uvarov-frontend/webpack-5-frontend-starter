@@ -1,16 +1,10 @@
 extends ../layout
 
-//- Mixins
-mixin img(src, title, selector)
-	- var path = `~@/img/${src}`;
-	img(src=path alt=title class=selector)
-
-
 //- Variables
 block variables
 	- var title = 'PUG шаблон';
-	- var images = "~@/img/pug-logo.png";
-
+	- var images = '~@/img/pug-logo.png';
+	- var img = "${require('@/img/pug-logo.png')}, ${require('@/img/pug-logo@2x.png')} 2x";
 
 block start-body
 	.preloader#preloader
@@ -18,23 +12,28 @@ block start-body
 
 block content
 	main.main-content
-		//- section.b-section-main.text-center(style=`background-image: url('${images}')`)
+		//- section.b-section.text-center(style="background-image: url('${require('@/img/pug-logo.png')}')")
 		section.b-section.text-center
 			h1.__title= title
 			.b-scroller
 				.__list
-					.item
-					.item
-					.item
-					.item
-					.item
-					.item
-					.item
-					.item
-					.item
-					.item
-			+img('webpack-logo.svg','logo','logo section__img section__img_big')
-			img(src=images alt="logo").__img._medium
+					.__item
+					.__item
+					.__item
+					.__item
+					.__item
+					.__item
+					.__item
+					.__item
+					.__item
+					.__item
+			picture.__img._medium
+				source(srcset="${require('@/img/pug-logo.webp')}" type="image/webp")
+				img(src=images
+					srcset=img
+					alt="logo")
 			br
-			img(src="~@/img/sass-logo.png" alt="logo").__img._small
+			img(src="~@/img/sass-logo.png"
+				srcset="${require('@/img/sass-logo.png')}, ${require('@/img/sass-logo@2x.png')} 2x"
+				alt="logo").__img._small
 			#vue-app

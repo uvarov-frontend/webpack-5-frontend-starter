@@ -28,6 +28,10 @@ body {
 
 		&__img {
 
+			img {
+				width: inherit;
+			}
+
 			&_big {
 				width: 150px;
 			}

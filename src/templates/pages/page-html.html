@@ -8,6 +8,7 @@
 	<title>HTML шаблон</title>
 	<!-- webpackIgnore: true -->
 	<link rel="shortcut icon" href="/favicon.svg">
+	<%= htmlWebpackPlugin.tags.headTags %>
 </head>
 
 <body>
@@ -15,8 +16,7 @@
 		<header class="main-header"></header>
 		<div class="main-wrapper">
 			<main class="main-content">
-
-				<!-- <section class="section-main text-center" style="background-image: url('~@/img/sass-logo.png')"> -->
+				<!-- <section class="section text-center" style="background-image: url('${require(`@/img/sass-logo.png`)}')"> -->
 				<section class="section text-center">
 					<h1 class="section__title">HTML шаблон</h1>
 					<img src="~@/img/webpack-logo.svg" alt="logo" class="section__img section__img_big">

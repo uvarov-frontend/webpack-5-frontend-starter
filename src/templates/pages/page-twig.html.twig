@@ -9,6 +9,7 @@
 		<title>{{ title }}</title>
 		<!-- webpackIgnore: true -->
 		<link rel="shortcut icon" href="/favicon.svg">
+		<%= htmlWebpackPlugin.tags.headTags %>
 	</head>
 
 	<body>
@@ -16,7 +17,7 @@
 			<header class="main-header"></header>
 			<div class="main-wrapper">
 				<main class="main-content">
-					{% set images = "~@/img/pug-logo.png" %}
+					{% set images = "${require('@/img/sass-logo.png')}" %}
 
 					{# <section class="section text-center" style="background-image: url('{{ images }}')"> #}
 					<section class="section text-center">
