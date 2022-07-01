@@ -6671,6 +6671,11 @@ replace-ext@^1.0.0:
   resolved "https://registry.yarnpkg.com/replace-ext/-/replace-ext-1.0.1.tgz#2d6d996d04a15855d967443631dd5f77825b016a"
   integrity sha512-yD5BHCe7quCgBph4rMQ+0KkIRKwWCrHDOX1p1Gp6HwjPM5kVoCdKGNhN7ydqqsX6lJEnQDKZ/tFMiEdQ1dvPEw==
 
+replace-string-loader@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/replace-string-loader/-/replace-string-loader-0.0.7.tgz#2589c0eab6784e1e3c6d55d6779c9df9fc5fdac4"
+  integrity sha512-vNUyHDWCcR/wOcmt7NccWPdUlEx7inZA3nNLTCvdGW+mO7p9mShXr8llLEnUNwCEf/2R/CgSEcN207l83eylyw==
+
 require-from-string@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/require-from-string/-/require-from-string-2.0.2.tgz#89a7fdd938261267318eafe14f9c32e598c36909"

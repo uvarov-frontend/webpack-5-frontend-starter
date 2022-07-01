@@ -23,6 +23,13 @@ module.exports = {
 						b: true,
 					},
 				},
+				{
+					loader: 'replace-string-loader',
+					options: {
+						search: /~(@\/+.*?)\.+(png|svg|jpg|jpeg|gif|webp|avif)/g,
+						replace: (match, b1, b2) => `\${require('${b1}.${b2}')}`,
+					},
+				},
 			],
 		},
 	],
