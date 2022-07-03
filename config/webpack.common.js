@@ -84,8 +84,6 @@ module.exports = {
 				from: `${PATHS.src}/${PATHS.assets.static}`,
 				to: PATHS.output,
 				globOptions: {
-					dot: true,
-					gitignore: true,
 					ignore: ['**/favicon.*'],
 				},
 			}],
@@ -98,8 +96,7 @@ module.exports = {
 					filename: `./${PAGE_NAME}.html`,
 					chunks: ['main', `${PAGE_NAME}`],
 					favicon: getFavicon(),
-					base: '/',
-					cache: true,
+					cache: false,
 					minify: false,
 					inject: false,
 				});
