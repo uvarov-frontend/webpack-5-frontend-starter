@@ -33,7 +33,7 @@
 	"license": "MIT",
 	"main": "./config/webpack.common.js",
 	"scripts": {
-		"utils:npm": "webpack --config ./utils/npm.js && rm ./npm/build/module-name.min.min.js",
+		"utils:npm": "webpack --config ./utils/npm.js",
 		"utils:ftp": "node ./utils/ftp",
 		"utils:clean": "node ./utils/clean",
 		"utils:entry": "node ./utils/entry",
@@ -61,6 +61,7 @@
 		"autoprefixer": "^10.4.7",
 		"babel-loader": "^8.2.4",
 		"bundle-stats-webpack-plugin": "^3.3.10",
+		"clean-webpack-plugin": "^4.0.0",
 		"compression-webpack-plugin": "^10.0.0",
 		"copy-webpack-plugin": "^11.0.0",
 		"cross-env": "^7.0.3",
