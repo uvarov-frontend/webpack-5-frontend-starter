@@ -59,7 +59,7 @@
 		"@uvarov.frontend/pug-bem-plain-loader": "^1.1.6",
 		"@vue/compiler-sfc": "^3.2.37",
 		"autoprefixer": "^10.4.7",
-		"babel-loader": "^8.2.4",
+		"babel-loader": "^8.2.5",
 		"bundle-stats-webpack-plugin": "^3.3.10",
 		"clean-webpack-plugin": "^4.0.0",
 		"compression-webpack-plugin": "^10.0.0",
