@@ -38,8 +38,8 @@ const createEntry = {
 			}
 
 			if (imports) {
-				data += `import '@/${PATHS.assets.js}/${PATHS.assets.pages}/${file}.js';\n`;
 				data += `import '@/${PATHS.assets.styles}/${PATHS.assets.pages}/${file}.scss';\n`;
+				data += `import '@/${PATHS.assets.scripts}/${PATHS.assets.pages}/${file}.js';\n`;
 				data += `import '@/${PATHS.assets.templates}/${PATHS.assets.pages}/${page}';\n`;
 			}
 
@@ -52,16 +52,16 @@ const createEntry = {
 
 		this.PAGES = this.search(`${PATHS.src}/${PATHS.assets.templates}/${PATHS.assets.pages}`, ['**.pug', '**.twig', '**.html']);
 		this.ENTRY = this.search(`${PATHS.entry.catalog}/${PATHS.entry.pages}`, ['**.js']);
-		this.SCRIPTS = this.search(`${PATHS.src}/${PATHS.assets.js}/${PATHS.assets.pages}`, ['**.js']);
 		this.STYLES = this.search(`${PATHS.src}/${PATHS.assets.styles}/${PATHS.assets.pages}`, ['**.scss']);
+		this.SCRIPTS = this.search(`${PATHS.src}/${PATHS.assets.scripts}/${PATHS.assets.pages}`, ['**.js']);
 
 		this.MISSING_ENTRY = this.missing(this.ENTRY, '.js');
 		this.MISSING_SCRIPTS = this.missing(this.SCRIPTS, '.js');
 		this.MISSING_STYLES = this.missing(this.STYLES, '.scss');
 
 		this.create(this.MISSING_ENTRY, `${PATHS.entry.catalog}/${PATHS.entry.pages}`, true, '.js');
-		this.create(this.MISSING_SCRIPTS, `${PATHS.src}/${PATHS.assets.js}/${PATHS.assets.pages}`, false, '.js');
 		this.create(this.MISSING_STYLES, `${PATHS.src}/${PATHS.assets.styles}/${PATHS.assets.pages}`, false, '.scss');
+		this.create(this.MISSING_SCRIPTS, `${PATHS.src}/${PATHS.assets.scripts}/${PATHS.assets.pages}`, false, '.js');
 
 		return console.log('ENTRY:', '\x1b[32m', 'OK', '\x1b[0m');
 	},

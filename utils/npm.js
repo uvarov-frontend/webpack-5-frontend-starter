@@ -31,9 +31,9 @@ const ENTRY = {};
 
 ENTRY_FILES.forEach((entry) => {
 	const ENTRYS = require(`${PATHS.npm}/src/entry/${entry}`);
-	ENTRY[entry.replace(/.js/, '.min.js')] = `${PATHS.src}${ENTRYS.js}`;
+	ENTRY[entry.replace(/.js/, '.min.js')] = `${PATHS.src}${ENTRYS.scripts}`;
 	if (ENTRYS.style) ENTRY[entry.replace(/.js/, '')] = `${PATHS.src}${ENTRYS.style}`;
-	COPY(`${PATHS.src}${ENTRYS.js}`);
+	COPY(`${PATHS.src}${ENTRYS.scripts}`);
 	COPY(`${PATHS.src}${ENTRYS.style}`);
 });
 

@@ -12,7 +12,7 @@ module.exports = merge(common, {
 		hints: false,
 	},
 	output: {
-		filename: `${common.externals.paths.assets.js}/[name].js`,
+		filename: `${common.externals.paths.assets.scripts}/[name].js`,
 	},
 	devServer: {
 		open: ['index.html'],

@@ -11,7 +11,7 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
 	devtool: false,
 	output: {
-		filename: `${common.externals.paths.assets.js}/[name].[contenthash:6].js`,
+		filename: `${common.externals.paths.assets.scripts}/[name].[contenthash:6].js`,
 	},
 	performance: {
 		maxEntrypointSize: 1024000,
