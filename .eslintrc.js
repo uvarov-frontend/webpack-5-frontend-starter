@@ -3,17 +3,28 @@ module.exports = {
 		browser: true,
 		es2021: true,
 	},
+	parser: '@typescript-eslint/parser',
 	extends: [
 		'airbnb-base',
 		'plugin:vue/essential',
 		'plugin:react/recommended',
 	],
+	overrides: [
+		{
+			files: ['*.ts', '*.tsx'],
+			plugins: ['@typescript-eslint'],
+			extends: [
+				'plugin:@typescript-eslint/recommended',
+				'plugin:react/recommended',
+			],
+		},
+	],
 	parserOptions: {
+		ecmaVersion: 2018,
+		sourceType: 'module',
 		ecmaFeatures: {
 			jsx: true,
 		},
-		ecmaVersion: 12,
-		sourceType: 'module',
 	},
 	plugins: [
 		'vue',
@@ -21,6 +32,9 @@ module.exports = {
 		'react',
 	],
 	settings: {
+		react: {
+			version: 'detect',
+		},
 		'import/resolver': {
 			alias: [
 				['@', './src'],

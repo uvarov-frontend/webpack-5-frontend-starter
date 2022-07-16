@@ -6,8 +6,7 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
 	target: 'web',
-	devtool: 'source-map', // slow build (debug js on)
-	// devtool: 'eval-source-map', // fast build (debug js off)
+	devtool: 'eval-source-map',
 	performance: {
 		hints: false,
 	},
@@ -32,6 +31,7 @@ module.exports = merge(common, {
 			linkType: false,
 		}),
 		new webpack.DefinePlugin({
+			PRODUCTION: JSON.stringify(false),
 			__VUE_OPTIONS_API__: true,
 			__VUE_PROD_DEVTOOLS__: true,
 		}),

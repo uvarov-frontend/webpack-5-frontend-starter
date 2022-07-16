@@ -53,6 +53,7 @@ module.exports = merge(common, {
 			},
 		}),
 		new webpack.DefinePlugin({
+			PRODUCTION: JSON.stringify(true),
 			__VUE_OPTIONS_API__: true,
 			__VUE_PROD_DEVTOOLS__: false,
 		}),

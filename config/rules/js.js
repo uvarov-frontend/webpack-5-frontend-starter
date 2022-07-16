@@ -1,7 +1,7 @@
 const PATHS = require('../paths');
 
 module.exports = {
-	test: /\.js$/i,
+	test: /\.(ts|js)x?$/i,
 	include: PATHS.src,
 	exclude: /node_modules/,
 	loader: 'babel-loader',

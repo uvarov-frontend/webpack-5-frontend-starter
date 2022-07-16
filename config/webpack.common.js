@@ -58,8 +58,21 @@ module.exports = {
 	},
 	resolve: {
 		alias: ALIAS,
+		extensions: [
+			'.ts',
+			'.tsx',
+			'.js',
+			'.jsx',
+			'.json',
+			'.vue',
+			'.scss',
+			'.html',
+			'.twig',
+			'.pug',
+		],
 	},
 	optimization: {
+		runtimeChunk: 'single',
 		splitChunks: {
 			cacheGroups: {
 				vendor: {
