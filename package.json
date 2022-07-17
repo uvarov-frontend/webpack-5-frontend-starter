@@ -40,7 +40,7 @@
 		"temp": "node ./config/temp.js TEMP=true",
 		"start": "npm run utils:entry --silent && npm run temp --silent && cross-env NODE_ENV=development webpack serve --config ./config/webpack.dev.js",
 		"dev": "npm run utils:entry --silent && npm run temp --silent && cross-env NODE_ENV=development webpack --config ./config/webpack.dev.js",
-		"prod": "npm run utils:entry --silent && npm run temp --silent && cross-env NODE_ENV=production PRETTY_HTML=true webpack --config ./config/webpack.prod.js"
+		"prod": "npm run utils:entry --silent && npm run temp --silent && cross-env NODE_ENV=production PRETTY_HTML=false webpack --config ./config/webpack.prod.js"
 	},
 	"browserslist": [
 		"> 1%",
