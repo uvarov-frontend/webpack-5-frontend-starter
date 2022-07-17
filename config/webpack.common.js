@@ -45,12 +45,13 @@ const getFavicon = () => {
 };
 
 module.exports = {
+	mode: process.env.NODE_ENV,
+	target: 'web',
+	stats: 'errors-warnings',
+	entry: ENTRY,
 	externals: {
 		paths: PATHS,
 	},
-	stats: 'errors-warnings',
-	mode: process.env.NODE_ENV,
-	entry: ENTRY,
 	output: {
 		path: PATHS.output,
 		clean: true,
@@ -58,18 +59,6 @@ module.exports = {
 	},
 	resolve: {
 		alias: ALIAS,
-		extensions: [
-			'.ts',
-			'.tsx',
-			'.js',
-			'.jsx',
-			'.json',
-			'.vue',
-			'.scss',
-			'.html',
-			'.twig',
-			'.pug',
-		],
 	},
 	optimization: {
 		runtimeChunk: 'single',
@@ -101,19 +90,17 @@ module.exports = {
 				},
 			}],
 		}),
-		...PAGES.map(
-			(page) => {
-				const PAGE_NAME = page.replace(/^_/g, '').replace(/\.(pug|html|twig)/g, '');
-				return new HtmlWebpackPlugin({
-					template: `${PAGES_DIR}/${page}`,
-					filename: `./${PAGE_NAME}.html`,
-					chunks: ['main', `${PAGE_NAME}`],
-					favicon: getFavicon(),
-					cache: false,
-					minify: false,
-					inject: false,
-				});
-			},
-		),
+		...PAGES.map((page) => {
+			const PAGE_NAME = page.replace(/^_/g, '').replace(/\.(pug|html|twig)/g, '');
+			return new HtmlWebpackPlugin({
+				template: `${PAGES_DIR}/${page}`,
+				filename: `./${PAGE_NAME}.html`,
+				chunks: ['main', `${PAGE_NAME}`],
+				favicon: getFavicon(),
+				minify: false,
+				cache: false,
+				inject: false,
+			});
+		}),
 	],
 };

@@ -5,8 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
-	target: 'web',
-	devtool: 'eval-source-map',
+	// devtool: 'eval-source-map', // More accurate source maps, but slow build.
+	devtool: 'eval-cheap-module-source-map', // Less accurate source maps, but faster build times.
 	performance: {
 		hints: false,
 	},
@@ -20,7 +20,7 @@ module.exports = merge(common, {
 		compress: true,
 		allowedHosts: 'all',
 		client: {
-			logging: 'info',
+			logging: 'warn',
 			overlay: true,
 			progress: false,
 		},
