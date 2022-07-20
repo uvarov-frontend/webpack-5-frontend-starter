@@ -1,15 +1,6 @@
 {
 	"presets": [
-		[
-			"@babel/preset-env",
-			{
-				"useBuiltIns": "usage",
-				"loose": true,
-				"corejs": {
-					"version": 3
-				}
-			}
-		],
+		"@babel/preset-env",
 		"@babel/preset-react",
 		"@babel/preset-typescript"
 	],
